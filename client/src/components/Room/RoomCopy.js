@@ -381,6 +381,7 @@ const Container = styled.div`
   max-height: 100vh;
   flex-direction: row;
   border-right: 2px solid rgb(69, 69, 82, 0.25);
+  background: #FFF8F3;
 `;
 
 const VideoBar = styled.div`

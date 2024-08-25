@@ -43,29 +43,74 @@ const MainCopy = (props) => {
     }
   };
   return (
-    <DIV>
-      <Container>
-        <Row>
-          <Label htmlFor="userName">Name</Label>
-          <Input type="text" id="userName" ref={userRef} />
-        </Row>
-        <Row>
-          <Label htmlFor="roomName">Room Id</Label>
-          <Input type="text" ref={roomRef} id="roomName" />
-        </Row>
-        <JoinButton onClick={handleJoin}>Join</JoinButton>
-        {err ? <Error>{errMsg}</Error> : null}
-      </Container>
-    </DIV>
+    <BackgroundImageContainer>
+      <DIV>
+        <Container>
+          <Row>
+            <Label htmlFor="userName">Name</Label>
+            <Input type="text" id="userName" ref={userRef} />
+          </Row>
+          <Row>
+            <Label htmlFor="roomName">Room Id</Label>
+            <Input type="text" ref={roomRef} id="roomName" />
+          </Row>
+          <JoinButton onClick={handleJoin}>Join</JoinButton>
+          {err ? <Error>{errMsg}</Error> : null}
+        </Container>
+      </DIV>
+    </BackgroundImageContainer>
   );
 };
 
 export default MainCopy;
+const BackgroundImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* Center the content vertically and horizontally */
+  min-height: 100vh;  /* Ensures the container takes up the full height of the viewport */
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/583847/pexels-photo-583847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the opacity to control the fade effect */
+    z-index: 1;
+  }
+`;
+
+// const BackgroundImageContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   height: 100%;
+//   width: 100%;
+//   background-image: url("https://cdn.dribbble.com/users/2563862/screenshots/6141448/untitled-7_4x.png");
+//   background-size: cover; /* or 'contain' */
+//   background-position: center;
+//   background-repeat: no-repeat;
+// `;
 
 const DIV = styled.div`
+  // height: 200px;
+  // width: 300px;
+  // padding: 50px;
+  // border-radius: 15px;
+  // background: #fff;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2; /* Ensure the content is above the overlay */
+  height: 170px;
+  width: 300px;
   padding: 50px;
-  border-radius: 5px;
-  background: #fff;
+  border-radius: 15px;
+  background: #FFF8F3;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 `;
 
@@ -81,7 +126,9 @@ const Row = styled.div`
   margin-top: 15px;
   line-height: 35px;
 `;
-const Label = styled.label``;
+const Label = styled.label`
+  font-weight: bold;
+`;
 
 const Input = styled.input`
   width: 150px;
@@ -108,6 +155,7 @@ const JoinButton = styled.button`
   font-family: "Nunito", sans-serif;
   margin-top: 20px;
   font-size: 16px;
+  font-weight: bold;
 
   &:hover {
     background: #55311c;

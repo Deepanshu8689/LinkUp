@@ -78,7 +78,7 @@ const ChatContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 25%;
-  background-color: white;
+  background: #fff;
   transition: all 0.5s ease;
   overflow: hidden;
   box-sizing: border-box;
@@ -86,11 +86,12 @@ const ChatContainer = styled.div`
 
 const TopHeader = styled.div`
   width: 100%;
-  margin-top: 15px;
+  // margin-top: 15px;
   font-weight: 600;
   font-size: 20px;
+  // background: #8c7569;
   color: black;
-  padding-bottom: 15px;
+  padding: 15px;
   border-bottom: 2px solid rgb(69, 69, 82, 0.25)
 `;
 
@@ -168,6 +169,7 @@ const BottomInput = styled.input`
   position: fixed; 
   bottom: 0;
   width: 100%;
+  // background: #FFF8F3;
   height: 9%;
   padding: 15px;
   border-top: 1px solid rgb(69, 69, 82, 0.25);
